@@ -1,3 +1,19 @@
 spring:
   application:
     name: lotm
+  datasource:
+    jpa:
+      properties:
+        hibernate:
+          dialect: "org.hibernate.dialect.H2Dialect"
+    driver-class-name: org.h2.Driver
+# TODO
+# spring.liquibase.enabled=false
+# spring.liquibase.change-log=classpath:/db/changelog-master.xml
+# spring.liquibase.drop-first=false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"

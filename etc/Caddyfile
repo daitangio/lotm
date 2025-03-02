@@ -1,0 +1,18 @@
+{$LOTM_TEST_DOMAIN:localhost}:8443 {
+    tls internal
+    log
+    #
+	reverse_proxy 127.0.0.1:8080  {
+		health_uri /actuator/health
+		lb_try_duration 5s
+		# See https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#lb_policy
+		lb_policy least_conn
+	}
+    encode gzip
+
+    header {
+        Server  "LOTM Server"
+        X-JJ-Version "1.0"
+    }
+
+}
