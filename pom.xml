@@ -31,6 +31,7 @@
 		 for information on this magic properties
 		-->
 		<spring-boot.run.jvmArguments>-verbose:gc</spring-boot.run.jvmArguments>
+		<argLine>-Duser.timezone=Europe/Rome -verbose:gc -Xms256m -Xmx256m </argLine>
 		<java.version>21</java.version>
 		<lombok.version>1.18.36</lombok.version>
 	</properties>
@@ -57,11 +58,15 @@
 			<version>4.1.0</version>
 		</dependency>
 
-		<!-- Production uses sqlite: -->
+		<!-- SQLite integration (see https://www.baeldung.com/spring-boot-sqlite) -->
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
 			<version>3.49.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-community-dialects</artifactId>
 		</dependency>
 
 		<dependency>

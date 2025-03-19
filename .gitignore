@@ -25,3 +25,5 @@ replay_pid*
 
 # Happy maven
 target/
+lotm.db
+

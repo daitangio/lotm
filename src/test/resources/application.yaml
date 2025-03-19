@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: lotm-test
+  datasource:
+    url: "jdbc:sqlite::memory:"
+  jpa: 
+    properties:
+      hibernate:
+        dialect: "org.hibernate.community.dialect.SQLiteDialect"
+        hbm2ddl:          
+          auto: create-drop
+        show-sql: true
+        format-sql: true    

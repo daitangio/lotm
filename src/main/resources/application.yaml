@@ -2,11 +2,22 @@ spring:
   application:
     name: lotm
   datasource:
-    jpa:
-      properties:
-        hibernate:
-          dialect: "org.hibernate.dialect.H2Dialect"
-    driver-class-name: org.h2.Driver
+    url: "jdbc:sqlite:lotm.db"
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 5
+      connectionTimeout: 90000
+      leakDetectionThreashold: 2000    
+  jpa: 
+    properties:
+      hibernate:
+        dialect: "org.hibernate.community.dialect.SQLiteDialect"
+        hbm2ddl:
+          # FIXME: Disable it after liquibase will be in place
+          auto: update
+        show-sql: true
+        format-sql: true
 # TODO
 # spring.liquibase.enabled=false
 # spring.liquibase.change-log=classpath:/db/changelog-master.xml
