@@ -23,7 +23,17 @@
 hs_err_pid*
 replay_pid*
 
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 # Happy maven
 target/
 lotm.db
-
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+./1-TestCall.ics
